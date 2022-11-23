@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crewmate.shopsystemapi.service.admin.AdminMapper">
+
+    <!--
+        desc: 단일 관리자정보 조회
+        author: cleansun9099
+     -->
+    <select id="selectAdminInfo" parameterType="String" resultType="Admin">
+        /* AdminMapper.selectAdminInfo */
+        SELECT
+            a.admin_seq,
+            a.comp_seq,
+            a.admin_id,
+            a.admin_pw,
+            a.admin_stat_cd
+        from system.admin a
+        where a.admin_id = #{adminId}
+    </select>
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crewmate.shopproductapi.mapper.comp.CompMapper">
+
+    <!--
+        desc: 단일 관리자정보 조회
+        author: cleansun9099
+     -->
+    <select id="selectCompList" resultType="Comp">
+        /* CompMapper.selectCompList */
+        SELECT
+            a.comp_seq,
+            a.comp_nm,
+            a.comp_stat_cd,
+            a.comp_type_cd,
+            a.reg_dt,
+            a.mod_dt,
+            a.reg_seq,
+            a.mod_seq
+        from system.comp a
+    </select>
+    
+    <select id="selectCompListCount" resultType="int">
+        /* CompMapper.selectCompListCount */
+        SELECT
+            count(*)
+        from system.comp a
+    </select>
+</mapper>

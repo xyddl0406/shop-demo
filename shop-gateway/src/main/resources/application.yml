@@ -1,0 +1,42 @@
+server:
+  port: 80
+  error:
+    whitelabel:
+      enabled: false
+  
+spring:
+  main: 
+    web-application-type: reactive
+    
+  cloud:
+    gateway:
+#      default-filters:
+#      - name: AuthFilter
+#        args:
+#          baseMessage: AuthFilter Start!
+#          preLogger: true
+#          postLogger: true
+      routes:
+        - id: shop-auth
+          uri: http://shop.auth:9001/
+          predicates:
+            - Path=/auth/**
+        - id: shop-system-api
+          uri: http://shop.system-api:9200/
+          predicates:
+            - Path=/system-api/**
+          filters:
+            - name: AuthFilter
+        - id: shop-product-api
+          uri: http://shop.product-api:9100/
+          predicates:
+            - Path=/product-api/**
+          filters:
+            - name: AuthFilter
+            - RewritePath=/product-api/(?<path>.*),/$\{path}
+        - id: shop-backoffice
+          uri: http://shop.backoffice:9000/
+          predicates:
+            - Path=/**
+          filters:
+            - name: AuthFilter

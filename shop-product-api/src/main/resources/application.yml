@@ -1,0 +1,20 @@
+logging:
+  level:
+    com.zaxxer.hikari: debug
+    org.mybatis: debug
+    o.s.web: debug
+server:
+  port: 9100
+  
+spring:
+  datasource:
+    jdbc-url: ${JDBC-URL}
+    driver-class-name: ${DRIVER-CLASS-NAME}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+    #hikari:
+     #maximum-pool-size: 10 //최대 풀 사이즈 (default 10)
+     #connection-timeout: 10000 // 클라이언트가 pool에 컨넥션을 요청하는데 기다리는 시간 (default 30000)
+     #minimum-idle: 5 //pool에서 유지가능한 최소 커넥션 갯수 (default 10)
+     #idle-timeout: 600000 //유휴상태로 유지시킬 최대시간 default 600000ms(10분). pool에 있는 connection이 minimumIdle에 도달할 경우 이후에 반환되는 connection에 대해서 바로 반환하지 않고 idleTimeout 만큼 유휴 상태로 있다가 폐기
+     #max-lifetime:  //커넥션의 최대 유지시간 default 1800000
