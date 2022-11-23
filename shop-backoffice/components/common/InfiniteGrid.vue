@@ -86,7 +86,7 @@ function onGridReady(params) {
                 lastRow = data.length;
               }
               // call the success callback
-              params.successCallback(rowsThisPage, lastRow);
+              params.successCallback(rowsThisPage, lastRow); //결국 한페이지에서 보여줄 데이터리스트와 총갯수(만약 데이터가 더남아있다면 -1)
             }, 500);
           },
         };
