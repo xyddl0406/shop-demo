@@ -35,12 +35,26 @@ subprojects {
         //for test
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         
+        //개발에 필요한 web설정
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.apache.commons:commons-lang3:3.0' //StringUtils
+        
         //lombok
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
     }
 }
 
+project(':shop-auth') {
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-data-redis'   //spring에서 레디스와 연결하기위한 의존
+        implementation 'org.springframework.session:spring-session-data-redis'     //spring에서 세션을 레디스에 저장하기위한 의존 (@EnableRedisHttpSession 사용하기위함)
+        
+        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.4' //feign 사용
+        implementation 'com.netflix.feign:feign-jackson:8.18.0' //feign 에서 encode, decode사용
+    }
+}
 
 project(':shop-system-api') {
     dependencies {
