@@ -25,12 +25,12 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config>{
 
     @Override
     public GatewayFilter apply(Config config) {
-        log.info("GatewayFilter start");
+        //log.info("GatewayFilter start");
         return ((exchange, chain) -> {
             
             if (this.checkExceptUri(exchange.getRequest())) {
-                log.info("{}", exchange.getRequest().getCookies());
-                log.info("{}", exchange.getRequest().getURI());
+                //log.info("{}", exchange.getRequest().getCookies());
+                //log.info("{}", exchange.getRequest().getURI());
                 MultiValueMap<String, String> c = new LinkedMultiValueMap<String, String>();
                 exchange.getRequest().getCookies().toSingleValueMap().forEach((key, httpCookie) -> { c.add(key, httpCookie.getValue()); });
                 
@@ -47,9 +47,9 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config>{
                         .map(responseMessage -> {
                             boolean isAuth = (boolean) responseMessage.getData();
                             if (isAuth) {
-                                log.info("AUTH!");
+                                //log.info("AUTH!");
                             } else {
-                                log.info("UNAUTH!");
+                                //log.info("UNAUTH!");
                                 throw new AdminAuthException();
                             }
                             
@@ -85,7 +85,7 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config>{
         
         for (String URI : EXCEPT_URIS) {
             if (requestedURI.getPath().toLowerCase().endsWith(URI)) {
-                log.info("AuthFilter checkExceptUri IGNORE!>>>>>> {}", URI);
+                //log.info("AuthFilter checkExceptUri IGNORE!>>>>>> {}", URI);
                 return false;
             };
         }

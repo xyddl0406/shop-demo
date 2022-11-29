@@ -5,8 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.crewmate.shopapicommon.config.ExternalApiConfig;
 import com.crewmate.shopapicommon.model.ResponseMessage;
+import com.crewmate.shopapicommon.properties.ExternalApiProperties;
 import com.crewmate.shopapicommon.util.CommonUtils;
 import com.crewmate.shopapiproduct.service.comp.CompService;
 
@@ -20,7 +20,7 @@ public class CompController {
 
     private final CompService compService;
     
-    private final ExternalApiConfig externalApiConfig;
+    private final ExternalApiProperties externalApiConfig;
     
     @RequestMapping("/company/list")
     public ResponseEntity<ResponseMessage> getCompanyList() {

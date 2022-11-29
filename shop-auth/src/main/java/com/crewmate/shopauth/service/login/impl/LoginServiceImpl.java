@@ -2,9 +2,9 @@ package com.crewmate.shopauth.service.login.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.crewmate.shopapicommon.config.ExternalApiConfig;
 import com.crewmate.shopapicommon.model.Admin;
 import com.crewmate.shopapicommon.model.ResponseMessage;
+import com.crewmate.shopapicommon.properties.ExternalApiProperties;
 import com.crewmate.shopauth.service.login.LoginFeignClient;
 import com.crewmate.shopauth.service.login.LoginService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class LoginServiceImpl implements LoginService {
     
-    private final ExternalApiConfig externalApiConfig;
+    private final ExternalApiProperties externalApiConfig;
     
     //alue("${application.api.url.system}")
     //private String systemApiUrl;
