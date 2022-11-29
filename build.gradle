@@ -48,23 +48,33 @@ subprojects {
 
 project(':shop-auth') {
     dependencies {
+        implementation project(':shop-api-common')
         implementation 'org.springframework.boot:spring-boot-starter-data-redis'   //spring에서 레디스와 연결하기위한 의존
         implementation 'org.springframework.session:spring-session-data-redis'     //spring에서 세션을 레디스에 저장하기위한 의존 (@EnableRedisHttpSession 사용하기위함)
-        
         implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.4' //feign 사용
         implementation 'com.netflix.feign:feign-jackson:8.18.0' //feign 에서 encode, decode사용
     }
 }
 
-project(':shop-system-api') {
+project(':shop-api-system') {
     dependencies {
-        implementation project(':shop-common-api')
+        implementation project(':shop-api-common')
     }
 }
 
-project(':shop-product-api') {
+project(':shop-api-product') {
     dependencies {
-        implementation project(':shop-common-api')
+        implementation project(':shop-api-common')
+    }
+}
+
+project(':shop-api-common') {
+    if (it.name.startsWith('shop-api')) { //모든 프로젝트가 shop-api-common을 의존하도록 하지만 DB설정이 필요없는 auth는 필요없다.
+        dependencies {
+            //DB설정
+            implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2' //마이바티스 및 @Mapper에 필요함
+            runtimeOnly 'mysql:mysql-connector-java' //mysql 연결
+        } 
     }
 }
 

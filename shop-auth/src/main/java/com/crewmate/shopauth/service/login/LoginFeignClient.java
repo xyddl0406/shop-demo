@@ -1,6 +1,6 @@
 package com.crewmate.shopauth.service.login;
 
-import com.crewmate.shopauth.ResponseMessage;
+import com.crewmate.shopapicommon.model.ResponseMessage;
 
 import feign.Headers;
 import feign.Param;

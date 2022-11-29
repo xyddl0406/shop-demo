@@ -1,0 +1,8 @@
+# 외부 api URL
+external:
+  api:
+    url:
+      gateway: http://shop.co.kr
+      system: http://shop.system-api:9200
+      product: http://shop.product-api:9100
+      auth: http://shop.auth:9001

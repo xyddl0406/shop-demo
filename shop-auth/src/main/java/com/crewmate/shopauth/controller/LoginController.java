@@ -1,7 +1,6 @@
 package com.crewmate.shopauth.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
@@ -10,10 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.crewmate.shopapicommon.model.ResponseMessage;
+import com.crewmate.shopapicommon.util.CommonUtils;
 import com.crewmate.shopauth.Admin;
-import com.crewmate.shopauth.ResponseMessage;
 import com.crewmate.shopauth.service.login.LoginService;
-import com.crewmate.shopauth.util.CommonUtils;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

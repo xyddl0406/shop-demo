@@ -1,12 +1,14 @@
 server:
   port: 9001
-application:
-  api:
-    url:
-      system: ${APPLICATION_API_URL_SYSTEM}
 spring:
+  profiles.include: common #api의 공통설정 properties는 상위 common-api에서관리되며 include한다.
   session:
     store-type: redis
   redis:
     host: localhost
     port: 6379
+  datasource:
+      url: jdbc:mysql://localhost:3306?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: '0000'

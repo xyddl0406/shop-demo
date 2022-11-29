@@ -1,9 +1,0 @@
-dependencies {
-    //DB설정
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2' //마이바티스 및 @Mapper에 필요함
-    runtimeOnly 'mysql:mysql-connector-java' //mysql 연결
-}
-
-tasks.named("bootJar") {
-    enabled = false
-}
