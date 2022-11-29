@@ -10,9 +10,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Component
 public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config>{
     

@@ -23,18 +23,15 @@ public class CommonUtils {
     }
     
     public static HttpServletRequest getRequest() {
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        return ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
     }
     
     public static HttpServletResponse getResponse() {
-        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
+        return ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getResponse();
     }
     
     public static HttpSession getSession() {
-        ServletRequestAttributes servletRequestAttribute = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-        HttpSession httpSession = servletRequestAttribute.getRequest().getSession(true);
-        
-        return httpSession;
+        return getRequest().getSession(true);
     }
     
     public static String sha512(String str, String salt) {
