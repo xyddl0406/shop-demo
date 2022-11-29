@@ -1,6 +1,6 @@
 package com.crewmate.shopauth.service.login;
 
-import com.crewmate.shopauth.Admin;
+import com.crewmate.shopapicommon.model.Admin;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 

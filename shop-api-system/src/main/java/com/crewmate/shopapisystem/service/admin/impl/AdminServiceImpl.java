@@ -2,7 +2,7 @@ package com.crewmate.shopapisystem.service.admin.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.crewmate.shopapisystem.model.admin.Admin;
+import com.crewmate.shopapicommon.model.Admin;
 import com.crewmate.shopapisystem.service.admin.AdminMapper;
 import com.crewmate.shopapisystem.service.admin.AdminService;
 

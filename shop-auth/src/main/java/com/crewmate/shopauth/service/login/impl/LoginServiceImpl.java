@@ -3,8 +3,8 @@ package com.crewmate.shopauth.service.login.impl;
 import org.springframework.stereotype.Service;
 
 import com.crewmate.shopapicommon.config.ExternalApiConfig;
+import com.crewmate.shopapicommon.model.Admin;
 import com.crewmate.shopapicommon.model.ResponseMessage;
-import com.crewmate.shopauth.Admin;
 import com.crewmate.shopauth.service.login.LoginFeignClient;
 import com.crewmate.shopauth.service.login.LoginService;
 import com.fasterxml.jackson.core.JsonProcessingException;

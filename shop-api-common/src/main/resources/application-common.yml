@@ -6,3 +6,9 @@ external:
       system: http://shop.system-api:9200
       product: http://shop.product-api:9100
       auth: http://shop.auth:9001
+spring:
+  session:
+    store-type: redis
+  redis:
+    host: localhost
+    port: 6379

@@ -9,9 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.crewmate.shopapicommon.model.Admin;
 import com.crewmate.shopapicommon.model.ResponseMessage;
 import com.crewmate.shopapicommon.util.CommonUtils;
-import com.crewmate.shopauth.Admin;
 import com.crewmate.shopauth.service.login.LoginService;
 
 import lombok.RequiredArgsConstructor;
@@ -58,9 +58,9 @@ public class LoginController {
             //response.sendRedirect("http://shop.co.kr/login/form");
         } else {
             //세션 저장
-            //CommonUtils.getSession().setAttribute("BO_AUTHORIZATION", dbAdmin);
-            HttpSession session = request.getSession();
-            session.setAttribute("BO_AUTHORIZATION", dbAdmin);
+            CommonUtils.getSession().setAttribute("BO_AUTHORIZATION", dbAdmin);
+            //HttpSession session = request.getSession();
+            //session.setAttribute("BO_AUTHORIZATION", dbAdmin);
             rm.setData(dbAdmin);
         }
         

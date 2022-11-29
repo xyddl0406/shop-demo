@@ -1,4 +1,4 @@
-package com.crewmate.shopauth;
+package com.crewmate.shopapicommon.model;
 
 import java.io.Serializable;
 

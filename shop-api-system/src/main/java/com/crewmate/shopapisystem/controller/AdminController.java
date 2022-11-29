@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.crewmate.shopapicommon.model.ResponseMessage;
+import com.crewmate.shopapicommon.util.CommonUtils;
 import com.crewmate.shopapisystem.service.admin.AdminService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,16 @@ public class AdminController {
         
         ResponseMessage rm = new ResponseMessage();
         rm.setData(this.adminService.selectAdminInfo(adminId));
+        
+        return new ResponseEntity<ResponseMessage>(rm, HttpStatus.OK);
+    }
+    
+    @RequestMapping("/admin/currentSession")
+    public ResponseEntity<ResponseMessage> getAdminCurrentSession() {
+        ResponseMessage rm = new ResponseMessage();
+        rm.setData(CommonUtils.getSession().getAttribute("BO_AUTHORIZATION"));
+        
+        log.info("AdminController.getAdminCurrentSession : {}", CommonUtils.getSession().getAttribute("BO_AUTHORIZATION"));
         
         return new ResponseEntity<ResponseMessage>(rm, HttpStatus.OK);
     }

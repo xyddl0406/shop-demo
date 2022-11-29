@@ -8,6 +8,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 //@Configuration
 public class RedisConfig {
+    /*
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
         LettuceConnectionFactory lettuceConnectionFactory = new LettuceConnectionFactory();
@@ -22,7 +23,7 @@ public class RedisConfig {
         redisTemplate.setValueSerializer(new StringRedisSerializer());
         return redisTemplate;
     }
- /*
+ 
     @Bean
     public StringRedisTemplate stringRedisTemplate() {
         StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();

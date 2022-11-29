@@ -27,6 +27,7 @@ spring:
             - Path=/system-api/**
           filters:
             - name: AuthFilter
+            - RewritePath=/system-api/(?<path>.*),/$\{path}
         - id: shop-product-api
           uri: http://shop.product-api:9100/
           predicates:
