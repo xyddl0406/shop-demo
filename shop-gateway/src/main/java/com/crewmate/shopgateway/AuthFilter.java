@@ -10,7 +10,10 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config>{
     
     private static final String[] EXCEPT_EXTENSIONS = {"js", "css", "ico"};
@@ -27,7 +30,7 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config>{
             
             if (this.checkExceptUri(exchange.getRequest())) {
                 //log.info("{}", exchange.getRequest().getCookies());
-                //log.info("{}", exchange.getRequest().getURI());
+                log.info("{}", exchange.getRequest().getURI());
                 MultiValueMap<String, String> c = new LinkedMultiValueMap<String, String>();
                 exchange.getRequest().getCookies().toSingleValueMap().forEach((key, httpCookie) -> { c.add(key, httpCookie.getValue()); });
                 

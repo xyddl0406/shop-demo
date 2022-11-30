@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crewmate.shopapisystem.service.apilog.ApiLogMapper">
+
+    <!--
+        desc: ApiLog 적재
+        author: cleansun9099
+     -->
+    <insert id="insertApiLog" parameterType="ApiLog">
+        INSERT INTO system.API_LOG (
+            <!-- LOG_SEQ, (auto_increment)--> 
+            request_method,
+            request_uri,
+            success_yn,
+            exec_time, 
+            request_param,
+            request_body,
+            response_result,
+            err_msg,
+            err_log,
+            client_ip,
+            user_agent,
+            reg_dt
+        ) VALUES (
+            #{requestMethod},
+            #{requestUri},
+            #{successYn},
+            #{execTime}, 
+            #{requestParam},
+            #{requestBody},
+            #{responseResult},
+            #{errMsg},
+            #{errLog},
+            #{clientIp},
+            #{userAgent},
+            date_format(now(), '%Y%m%d%H%i%s')
+        )
+    </insert>
+</mapper>

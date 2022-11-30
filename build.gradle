@@ -49,9 +49,6 @@ subprojects {
 project(':shop-auth') {
     dependencies {
         implementation project(':shop-api-common')
-        
-        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.4' //feign 사용
-        implementation 'com.netflix.feign:feign-jackson:8.18.0' //feign 에서 encode, decode사용
     }
 }
 
@@ -71,6 +68,9 @@ project(':shop-api-common') {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-data-redis'   //spring에서 레디스와 연결하기위한 의존
         implementation 'org.springframework.session:spring-session-data-redis'     //spring에서 세션을 레디스에 저장하기위한 의존 (@EnableRedisHttpSession 사용하기위함)
+        
+        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.4' //feign 사용
+        implementation 'com.netflix.feign:feign-jackson:8.18.0' //feign 에서 encode, decode사용
         
         implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2' //마이바티스 및 @Mapper에 필요함
         runtimeOnly 'mysql:mysql-connector-java' //mysql 연결

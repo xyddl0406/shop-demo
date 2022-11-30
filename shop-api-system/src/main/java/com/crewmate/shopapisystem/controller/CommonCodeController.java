@@ -24,7 +24,7 @@ public class CommonCodeController {
      * @param search
      * @return
      */
-    @RequestMapping("/system-api/code/list") ///system-api 게이트웨이에서 받아서 삭제
+    @RequestMapping("/code/list") ///system-api 게이트웨이에서 받아서 삭제
     public ResponseEntity<ResponseMessage> getCommonCodeList(CommonCodeSearch search) {
         log.info("getCommonCodeList!!! : {}", search);
         
