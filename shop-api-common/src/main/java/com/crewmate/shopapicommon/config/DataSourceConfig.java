@@ -7,6 +7,8 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import com.crewmate.shopapicommon.properties.ApplicationProperties;
 import com.zaxxer.hikari.HikariConfig;
@@ -45,5 +47,15 @@ public class DataSourceConfig {
         sessionFactory.getObject().getConfiguration().setMapUnderscoreToCamelCase(true); //카멜 케이스 정의
 
         return sessionFactory.getObject();
+    }
+    
+    /**
+     * aop.TransactionAspect.java 에서 사용할 txManager 빈 생성.
+     * dataSource()가 필요하기때문에 여기서 빈을 생성한다.
+     * @return
+     */
+    @Bean
+    public PlatformTransactionManager transactionManager() {
+        return new DataSourceTransactionManager(dataSource());
     }
 }
