@@ -1,6 +1,9 @@
 package com.crewmate.shopapisystem.service.code.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.crewmate.shopapicommon.model.ListResult;
 import com.crewmate.shopapisystem.model.code.Code;
@@ -26,6 +29,23 @@ public class CommonCodeServiceImpl implements CommonCodeService {
         listResult.setList(this.commonCodeMapper.selectCommonCodeList(search));
         
         return listResult;
+    }
+
+    @Override
+    public List<Code> getCommonCodeForm(String codeGrp) {
+        return this.commonCodeMapper.selectCommonCodeForm(codeGrp);
+    }
+
+    @Override
+    public List<Code> selectCommonCodeGrpList() {
+        return this.commonCodeMapper.selectCommonCodeGrpList();
+    }
+
+    @Override
+    public int insertCode(Code code) {
+        int result = this.commonCodeMapper.insertCode(code);
+        
+        return result;
     }
 
 }

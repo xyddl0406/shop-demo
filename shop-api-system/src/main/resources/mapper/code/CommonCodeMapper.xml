@@ -15,52 +15,17 @@
         SELECT code_grp
              , code
              , code_nm
+             , code_val1
+             , code_val2
+             , code_val3
+             , code_val4
+             , code_val5
+             , use_yn
+             , disp_no
+             , reg_dt
+             , mod_dt
           FROM system.code
-          union all
-          SELECT code_grp
-             , code
-             , code_nm
-          FROM system.code
-          union all
-          SELECT code_grp
-             , code
-             , code_nm
-          FROM system.code
-          union all
-          SELECT code_grp
-             , code
-             , code_nm
-          FROM system.code
-          union all
-          SELECT code_grp
-             , code
-             , code_nm
-          FROM system.code
-          union all
-          SELECT code_grp
-             , code
-             , code_nm
-          FROM system.code
-          union all
-          SELECT code_grp
-             , code
-             , code_nm
-          FROM system.code
-          union all
-          SELECT code_grp
-             , code
-             , code_nm
-          FROM system.code
-          union all
-          SELECT code_grp
-             , code
-             , code_nm
-          FROM system.code
-          union all
-          SELECT code_grp
-             , code
-             , code_nm
-          FROM system.code
+        order by disp_no
         <include refid="selectCommonCodeListWhere"></include>
         <if test="paging">
         LIMIT #{limit} OFFSET #{offset}
@@ -72,4 +37,64 @@
           FROM system.code
         <include refid="selectCommonCodeListWhere"></include>
     </select>
+    
+    <select id="selectCommonCodeForm" parameterType="String" resultType="Code">
+        SELECT code_grp
+             , code
+             , code_nm
+             , code_val1
+             , code_val2
+             , code_val3
+             , code_val4
+             , code_val5
+             , use_yn
+             , disp_no
+             , reg_dt
+             , mod_dt
+          FROM system.code
+        where code_grp = #{codeGrp}
+    </select>
+    
+    <select id="selectCommonCodeGrpList" resultType="Code">
+        select code_grp
+        from system.code
+        where use_yn = 'Y'
+        group by code_grp
+        order by disp_no 
+    </select>
+    
+    <insert id="insertCode" parameterType="Code">
+        INSERT INTO `system`.code (
+            CODE_GRP,
+            CODE,
+            CODE_NM,
+            CODE_VAL1,
+            CODE_VAL2,
+            CODE_VAL3,
+            CODE_VAL4,
+            CODE_VAL5,
+            USE_YN,
+            DISP_NO,
+            REG_DT,
+            MOD_DT,
+            REG_SEQ,
+            MOD_SEQ
+        ) VALUES (
+            #{codeGrp},
+            #{code},
+            #{codeNm},
+            #{codeVal1},
+            #{codeVal2},
+            #{codeVal3},
+            #{codeVal4},
+            #{codeVal5},
+            #{useYn},
+            #{dispNo},
+            date_format(now(), '%Y%m%d%H%i%s'),
+            date_format(now(), '%Y%m%d%H%i%s'),
+            #{regSeq},
+            #{modSeq}
+        )
+        
+    </insert>
 </mapper>

@@ -37,8 +37,15 @@ const columnDefs = [
             }
           },
         },
-        { field: '코드', field: "code" },
-        { field: '코드명', field: "codeNm"},
+        { headerName: '코드', field: "code" },
+        { headerName: '코드명', field: "codeNm"},
+        { headerName: '코드값1', field: "codeVal1"},
+        { headerName: '코드값2', field: "codeVal2"},
+        { headerName: '코드값3', field: "codeVal3"},
+        { headerName: '코드값4', field: "codeVal4"},
+        { headerName: '코드값5', field: "codeVal5"},
+        { headerName: '사용여부', field: "useYn"},
+        { headerName: '전시순서', field: "dispYn"},
       ]
 
 const gridApi = null

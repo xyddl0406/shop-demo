@@ -13,6 +13,8 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.crewmate.shopapicommon.model.Admin;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -32,6 +34,10 @@ public class CommonUtils {
     
     public static HttpSession getSession() {
         return getRequest().getSession(true);
+    }
+    
+    public static Admin getCurrentAdmin() {
+        return (Admin) getSession().getAttribute("BO_AUTHORIZATION");
     }
     
     public static String sha512(String str, String salt) {

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <NuxtLink type="button" class="btn btn-primary m-3" to="/code/form">코드 등록</NuxtLink>
     <CommonInfiniteGrid
       
       >
@@ -8,7 +9,6 @@
 </template>
 
 <script setup lang="ts"> 
-
 const requestHeaders = new Headers()
 const rhs = useRequestHeaders()
 
@@ -26,9 +26,4 @@ const cols = [
         { headerName: "코드", field: "code" },
         { headerName: "코드명", field: "codeNm" },
       ]
-
-//const { data } = await useFetch<ResponseMessage>('http://shop.co.kr/system-api/code/list?paging=false', { headers :  requestHeaders, initialCache: false })
-
-//const {data} = await useFetch('https://www.ag-grid.com/example-assets/olympic-winners.json')
-
 </script>
