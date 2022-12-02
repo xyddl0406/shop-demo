@@ -74,6 +74,8 @@ project(':shop-api-common') {
         
         implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2' //마이바티스 및 @Mapper에 필요함
         runtimeOnly 'mysql:mysql-connector-java' //mysql 연결
+        
+        implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16'
     }
 }
 

@@ -4,8 +4,10 @@ spring:
   profiles.include: common #api의 공통설정 properties는 상위 common-api에서관리되며 include한다.
   datasource:
     hikari:
-      jdbc-url: jdbc:mysql://localhost:3306?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      #jdbc-url: jdbc:mysql://localhost:3306?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+      #driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:log4jdbc:mysql://localhost:3306?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
       username: root
       password: '0000'
      #maximum-pool-size: 10 //최대 풀 사이즈 (default 10)
