@@ -77,6 +77,8 @@ project(':shop-api-common') {
         runtimeOnly 'mysql:mysql-connector-java' //mysql 연결
         
         implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16'
+        
+        implementation 'com.googlecode.json-simple:json-simple:1.1.1' //common-api 의 logging aop에서 사용 
     }
 }
 
