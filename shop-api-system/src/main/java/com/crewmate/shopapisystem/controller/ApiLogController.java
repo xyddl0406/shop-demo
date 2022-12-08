@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.crewmate.shopapicommon.annotation.NoLogging;
 import com.crewmate.shopapicommon.model.ApiLog;
 import com.crewmate.shopapicommon.model.ResponseMessage;
 import com.crewmate.shopapisystem.service.apilog.ApiLogService;
@@ -20,6 +21,7 @@ public class ApiLogController {
     
     private final ApiLogService ApiLogService;
 
+    @NoLogging
     @PostMapping("/api-log")
     public ResponseEntity<ResponseMessage> insertApiLog(@RequestBody ApiLog apiLog) {
         

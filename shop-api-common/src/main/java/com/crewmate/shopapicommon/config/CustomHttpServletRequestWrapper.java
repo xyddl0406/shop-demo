@@ -31,7 +31,6 @@ public class CustomHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
     @Override
     public ServletInputStream getInputStream() throws IOException {
-        System.out.println("getInputStreamgetInputStreamgetInputStreamgetInputStreamgetInputStreamgetInputStream");
         if (cachedBytes == null)
             cacheInputStream();
 

@@ -34,7 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 public class LoggingAspect {
     private final ApplicationEventPublisher applicationEventPublisher;
     
-    @Around(value = "execution(* com.crewmate..controller..*(..))")
+    @Around(value = "execution(* com.crewmate..controller..*(..)) && !@annotation(com.crewmate.shopapicommon.annotation.NoLogging)")
     public Object logging(ProceedingJoinPoint pjp) {
         log.info("======================================LoggingAspect START======================================");
         //return 할 Object객체 미리 생성
