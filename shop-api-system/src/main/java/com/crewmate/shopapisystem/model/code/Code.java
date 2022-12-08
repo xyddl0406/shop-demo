@@ -2,7 +2,6 @@ package com.crewmate.shopapisystem.model.code;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.NotEmpty;
 
 import com.crewmate.shopapicommon.model.BaseModel;
 

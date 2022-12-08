@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.crewmate.shopapicommon.model.ResponseMessage;
-import com.crewmate.shopapicommon.util.CommonUtils;
 import com.crewmate.shopapisystem.model.code.Code;
 import com.crewmate.shopapisystem.model.code.CommonCodeSearch;
 import com.crewmate.shopapisystem.service.code.CommonCodeService;
@@ -77,9 +76,9 @@ public class CommonCodeController {
     public ResponseEntity<ResponseMessage> insertCode(@RequestBody @Valid Code code) {
         log.info("insertCode!!! CODE : {}", code);
         
-        // 이작업을 인터셉터에서 할 순 없을까?
-        code.setRegSeq(CommonUtils.getCurrentAdmin().getAdminSeq());
-        code.setModSeq(CommonUtils.getCurrentAdmin().getAdminSeq());
+        // 이작업을 인터셉터에서 할 순 없을까? -> BaseModelRequestBodyAdvice 구현완료
+        //code.setRegSeq(CommonUtils.getCurrentAdmin().getAdminSeq());
+        //code.setModSeq(CommonUtils.getCurrentAdmin().getAdminSeq());
         
         ResponseMessage rm = new ResponseMessage();
         rm.setMessage(HttpStatus.OK.getReasonPhrase());
